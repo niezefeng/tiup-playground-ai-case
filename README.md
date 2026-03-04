@@ -1,25 +1,24 @@
 # TiUP Playground AI Use Case
 
-这个仓库用于沉淀一个可复用的 AI 使用案例：  
-先让 AI Agent（如 Codex、Claude Code）在 `tidb/tikv/PD` 仓库做代码分析，再基于分析结果用 `tiup playground` 生成并执行验证计划，用于快速复现与确认 TiDB 相关问题。
+This repository documents a reusable AI-assisted workflow:
+use AI agents (such as Codex and Claude Code) to analyze `tidb/tikv/PD` code first, then generate and execute a `tiup playground` verification plan to quickly reproduce and validate TiDB behaviors.
 
-## 文件说明
+## Files
 
 - [tiup-playground-ai-case.md](./tiup-playground-ai-case.md)  
-  AI 使用 case（按模板整理，包含背景、场景、流程和收益）
+  AI usage case based on the provided template (background, scenarios, process, and benefits)
 - [tiup-playground-SKILL.md](./tiup-playground-SKILL.md)  
-  给 Agent 使用的 `tiup playground` Skill 文档
+  `tiup playground` skill document for AI agents
 
-## 简单使用流程
+## Quick Workflow
 
-1. 将 `tiup-playground-SKILL.md` 提供给 Agent，并让它配置到当前环境。  
-2. 告诉 Agent 你要验证的目标（例如 TiDB DDL 行为、SQL Binding 是否生效）。  
-3. 先在代码仓库中让 Agent 分析逻辑与预期，再让它生成 `tiup playground` 测试计划。  
-4. 让 Agent 执行测试并输出结论与证据（版本信息、SQL 结果、日志）。  
+1. Give `tiup-playground-SKILL.md` to your agent and ask it to set up the environment.
+2. Describe what you want to verify (for example, TiDB DDL behavior or SQL Binding effectiveness).
+3. Ask the agent to analyze the logic in the code repo first, then generate a `tiup playground` test plan.
+4. Ask the agent to execute the plan and provide conclusions with evidence (version info, SQL output, and logs).
 
-## 适用示例
+## Typical Use Cases
 
-- DDL 行为验证（状态转换、兼容性边界）
-- SQL Binding 命中验证
-- 特定版本（stable/nightly）回归复现
-
+- DDL behavior verification (state transitions, compatibility boundaries)
+- SQL Binding hit/miss verification
+- Regression reproduction on specific versions (`stable` / `nightly`)

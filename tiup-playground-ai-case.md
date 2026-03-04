@@ -1,56 +1,56 @@
 ---
-title: "AI Agent + TiUP Playground：TiDB 问题验证工作流"
-category: "数据库测试"
+title: "AI Agent + TiUP Playground: TiDB Verification Workflow"
+category: "Database Testing"
 ai_usage:
-  - "代码分析"
-  - "测试计划生成"
-  - "自动化验证"
+  - "Code Analysis"
+  - "Test Plan Generation"
+  - "Automated Validation"
 date: "2026-03"
 sort: 202603.0
 ai_tools:
   - "Codex (GPT-5)"
   - "Claude Code"
-description: "在 tidb/tikv/PD 代码仓库先让 AI Agent 做代码分析，再生成并执行 tiup playground 测试计划，快速验证 DDL、SQL Binding 等问题。"
+description: "Use AI agents to analyze logic in tidb/tikv/PD first, then generate and execute tiup playground test plans to quickly verify DDL, SQL Binding, and regression behaviors."
 links: []
 thumbnail: ""
 ---
 
-# AI Agent + TiUP Playground：TiDB 问题验证工作流
+# AI Agent + TiUP Playground: TiDB Verification Workflow
 
-## 概要
+## Overview
 
-这个使用 case 聚焦在 TiDB 研发与测试场景：先让 AI Agent（如 Codex、Claude Code）在 `tidb/tikv/PD` 代码仓库中做问题分析，再由 AI 基于分析结论生成 `tiup playground` 验证计划并执行，从而更快完成问题复现和结论确认。
+This use case targets TiDB engineering and testing workflows: first use AI agents (such as Codex and Claude Code) to analyze behavior in the `tidb/tikv/PD` repositories, then let the AI generate and execute a `tiup playground` verification plan based on that analysis.
 
-相比直接人工手写测试步骤，这种流程更适合“先理解代码逻辑，再验证行为”的问题，例如 DDL 执行路径、SQL Binding 是否命中、特定版本回归等。
+Compared with manually writing test steps from scratch, this workflow is better for cases where understanding code logic first is critical, such as DDL execution paths, SQL Binding effectiveness, and version-specific regressions.
 
-## 适用场景
+## Applicable Scenarios
 
-- 验证 TiDB DDL 行为（如变更生效、元数据状态转换、兼容性边界）
-- 验证 SQL Binding 是否按预期生效
-- 复现某个 issue 在特定版本（stable/nightly）是否存在
-- 基于代码逻辑对猜想做快速实验
+- Verify TiDB DDL behaviors (schema change effects, metadata transitions, compatibility boundaries)
+- Verify whether SQL Binding is effective as expected
+- Reproduce whether a known issue exists on a specific version (`stable` / `nightly`)
+- Run fast hypothesis-driven experiments based on code logic
 
-## 简单使用流程
+## Simple Workflow
 
-1. 把 [tiup-playground-SKILL.md](/Users/anthonynie/AI_project/codex/tiup-playground-SKILL.md) 提供给 Agent，并让它配置到当前环境。
-2. 告诉 Agent 你要验证的内容，例如“做一个 TiDB DDL 测试”或“验证某条 SQL Binding 是否生效”。
-3. 先在 `tidb/tikv/PD` 仓库里让 Agent 分析代码逻辑，明确预期行为与关键观测点。
-4. 让 Agent 基于分析结果生成 `tiup playground` 测试计划（版本、拓扑、SQL 步骤、断言）。
-5. 让 Agent 执行计划，收集输出（`tidb_version()`、SQL 结果、日志），并给出最终结论。
+1. Provide [tiup-playground-SKILL.md](./tiup-playground-SKILL.md) to the agent and ask it to set up the environment.
+2. Describe what you want to verify, such as a TiDB DDL case or whether a SQL Binding is effective.
+3. Ask the agent to analyze code logic in `tidb/tikv/PD` first and define expected behavior and observation points.
+4. Ask the agent to generate a `tiup playground` test plan from that analysis (version, topology, SQL steps, assertions).
+5. Ask the agent to execute the plan, collect outputs (`tidb_version()`, SQL results, logs), and provide a final conclusion.
 
-## 实际收益
+## Benefits
 
-- 缩短“读代码 -> 写实验 -> 得结论”的链路
-- 减少遗漏观测点导致的误判
-- 让验证过程可复用、可追溯、可沉淀
+- Shorten the cycle from "read code -> design experiment -> conclude"
+- Reduce misjudgment caused by missing observation points
+- Make verification reusable, traceable, and easy to document
 
-## 作成日
+## Created
 
-- 2026年3月
+- March 2026
 
-## 利用したAI
+## AI Tools Used
 
 - Codex (GPT-5)
 - Claude Code
 
-## link
+## Links
