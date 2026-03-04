@@ -15,9 +15,8 @@ use AI agents (such as Codex and Claude Code) to analyze `tidb/tikv/PD` code fir
 ## Quick Workflow
 
 1. Give `tiup-playground-SKILL.md` to your agent and ask it to set up the environment.
-2. Describe what you want to verify (for example, TiDB DDL behavior or SQL Binding effectiveness).
-3. Ask the agent to analyze the logic in the code repo first, then generate a `tiup playground` test plan.
-4. Ask the agent to execute the plan and provide conclusions with evidence (version info, SQL output, and logs).
+2. Ask the agent to analyze the logic in the code repo first, then generate a `tiup playground` test plan.
+3. Ask the agent to execute the plan and provide conclusions with evidence (version info, SQL output, and logs).
 
 ## Typical Use Cases
 
