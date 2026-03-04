@@ -9,6 +9,8 @@ use AI agents (such as Codex and Claude Code) to analyze `tidb/tikv/PD` code fir
   AI usage case based on the provided template (background, scenarios, process, and benefits)
 - [tiup-playground-SKILL.md](./tiup-playground-SKILL.md)  
   `tiup playground` skill document for AI agents
+- [ddl_reorg_test_prompt_EN.md](./ddl_reorg_test_prompt_EN.md)  
+  AI-generated executable test plan for TiDB DDL reorg phase validation
 
 ## Quick Workflow
 
